@@ -47,6 +47,8 @@ namespace NalandaSchool.Controllers
         [HttpPost]
         public IActionResult Admission(Student s)
         {
+            s.FeeStatus = "Pending";
+
             // Save student into database
             _context.Students.Add(s);
 
