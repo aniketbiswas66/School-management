@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("NalandaInstitute")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5e2ad32b8f2c62f3e665e129c26fb9f3c3fd5a1a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b944dbc93c72695d94910b5de4ee6415241bc5eb")]
 [assembly: System.Reflection.AssemblyProductAttribute("NalandaInstitute")]
 [assembly: System.Reflection.AssemblyTitleAttribute("NalandaInstitute")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -66,7 +66,7 @@
     @if (Context.Session.GetString("Role") != null)
     {
         <aside>
-            @if (Context.Session.GetString("Role").ToString() == "admin")
+            @if (Context.Session.GetString("Role") == "admin")
             {
                 <div class="section">Admin</div>
                 <a href="@Url.Action("Dashboard","Admin")">Dashboard</a>
@@ -79,7 +79,7 @@
                 <div class="section">Reports</div>
                 <a href="@Url.Action("Attendance","Admin")">View Attendance</a>
             }
-            @if (Context.Session.GetString("Role").ToString() == "student")
+            @if (Context.Session.GetString("Role") == "student")
             {
                 <div class="section">Student</div>
                 <a href="@Url.Action("Dashboard","Student")">Dashboard</a>
@@ -87,7 +87,7 @@
                 <a href="@Url.Action("Attendance","Student")">My Attendance</a>
                 <a href="@Url.Action("Schedule","Student")">Class Schedule</a>
             }
-            @if (Context.Session.GetString("Role").ToString() == "teacher")
+            @if (Context.Session.GetString("Role") == "teacher")
             {
                 <div class="section">Teacher</div>
                 <a href="@Url.Action("Dashboard","Teacher")">Dashboard</a>
