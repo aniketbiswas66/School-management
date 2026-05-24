@@ -1,0 +1,53 @@
+@model List<NalandaSchool.Models.Student>
+@{ ViewBag.Title = "Take Attendance"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Take Attendance</h1>
+<p class="sub">Mark attendance for today</p>
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert-success">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm("SaveAttendance", "Teacher", FormMethod.Post))
+{
+    <div class="card">
+        <div class="form-row" style="margin-bottom:16px">
+            <div class="form-group">
+                <label>Class</label>
+                <select name="cls">
+                    <option>10-A</option><option>10-B</option><option>9-A</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" name="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" />
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr><th>#</th><th>Name</th><th>Class</th><th>Status</th></tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td>@Model[i].Id</td>
+                        <td>@Model[i].Name</td>
+                        <td>@Model[i].Class</td>
+                        <td>
+                            <select name="status" class="status-select">
+                                <option value="Present">Present</option>
+                                <option value="Absent">Absent</option>
+                                <option value="Late">Late</option>
+                            </select>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br>
+        <button type="submit" class="btn btn-green">Save Attendance</button>
+    </div>
+}

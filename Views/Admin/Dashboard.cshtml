@@ -1,0 +1,22 @@
+@{ ViewBag.Title = "Admin Dashboard"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Admin Dashboard</h1>
+<p class="sub">Welcome, @Context.Session.GetString("User")</p>
+
+<div class="stats">
+    <div class="stat">
+        <div class="num">@ViewBag.StudentCount</div>
+        <div class="lbl">Students</div>
+    </div>
+    <div class="stat">
+        <div class="num">@ViewBag.TeacherCount</div>
+        <div class="lbl">Teachers</div>
+    </div>
+</div>
+
+<div class="card">
+    <p>Quick Links:</p><br>
+    <a class="btn btn-blue" href="@Url.Action("Students")">View Students</a>&nbsp;
+    <a class="btn btn-blue" href="@Url.Action("Teachers")">View Teachers</a>&nbsp;
+    <a class="btn btn-blue" href="@Url.Action("Attendance")">View Attendance</a>
+</div>

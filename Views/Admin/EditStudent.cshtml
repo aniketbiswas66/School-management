@@ -1,0 +1,142 @@
+@* @model NalandaSchool.Models.Student
+
+<div class="card">
+    
+    <div class="card-shadow">
+
+        <div class="card-header">
+            <h2>Edit Student</h2>
+        </div>
+
+        <div class="card-body">
+
+            <form asp-action="EditStudent" method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label>Name</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Class</label>
+                    <input asp-for="Class" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Phone</label>
+                    <input asp-for="Phone" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Email</label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label>Fee Status</label>
+
+                    <select asp-for="FeeStatus" class="form-control">
+                        <option>Pending</option>
+                        <option>Paid</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-success">
+                    Update Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div> *@
+
+@model NalandaSchool.Models.Student
+
+@{
+    ViewBag.Title = "Edit Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-primary text-white rounded-top-4">
+            <h2 class="mb-0">Edit Student</h2>
+        </div>
+
+        <div class="card-body p-4">
+
+            <form asp-action="EditStudent" method="post">
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                    <label class="form-label fw-bold">Full Name</label>
+                        <input asp-for="Name" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Class</label>
+
+                        <select asp-for="Class" class="form-select form-select-lg">
+                            <option>9-A</option>
+                            <option>9-B</option>
+                            <option>10-A</option>
+                            <option>10-B</option>
+                            <option>11-A</option>
+                            <option>11-B</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Phone Number</label>
+                        <input asp-for="Phone" class="form-control form-control-lg" />
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label fw-bold">Email Address</label>
+                        <input asp-for="Email" class="form-control form-control-lg" />
+                    </div>
+
+                </div>
+
+                <div class="mb-4">
+                    <label class="form-label fw-bold">Fee Status</label>
+
+                    <select asp-for="FeeStatus" class="form-select form-select-lg">
+                        <option>Pending</option>
+                        <option>Paid</option>
+                    </select>
+                </div>
+
+                <div class="d-flex gap-2">
+
+                    <button type="submit" class="btn btn-success btn-lg">
+                        Update Student
+                    </button>
+
+                    <a asp-action="Students" class="btn btn-secondary btn-lg">
+                        Cancel
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>

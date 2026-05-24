@@ -1,0 +1,12 @@
+@* Dashboard *@
+@{ ViewBag.Title = "Student Dashboard"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Student Dashboard</h1>
+<p class="sub">Welcome, @Context.Session.GetString("User")</p>
+
+<div class="card">
+    <b>Quick Links</b><br><br>
+    <a class="btn btn-blue" href="@Url.Action("Admission")">Admission Form</a>&nbsp;
+    <a class="btn btn-blue" href="@Url.Action("Attendance")">My Attendance</a>&nbsp;
+    <a class="btn btn-blue" href="@Url.Action("Schedule")">Class Schedule</a>
+</div>

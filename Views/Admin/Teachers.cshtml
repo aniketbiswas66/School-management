@@ -1,0 +1,26 @@
+@model List<NalandaSchool.Models.Teacher>
+@{ ViewBag.Title = "Teachers"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Teachers</h1>
+<p class="sub">All faculty members</p>
+<a class="btn btn-blue" href="@Url.Action("AddTeacher")">+ Add Teacher</a>
+<br><br>
+
+<table>
+    <thead>
+        <tr><th>#</th><th>Name</th><th>Department</th><th>Phone</th><th>Email</th><th>Action</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Id</td>
+                <td>@t.Name</td>
+                <td>@t.Department</td>
+                <td>@t.Phone</td>
+                <td>@t.Email</td>
+                <td><a class="btn btn-red" href="@Url.Action("DeleteTeacher", new { id = t.Id })">Delete</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

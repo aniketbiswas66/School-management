@@ -1,0 +1,33 @@
+@model List<NalandaSchool.Models.Student>
+@{ ViewBag.Title = "Students"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Students</h1>
+<p class="sub">All enrolled students</p>
+<a class="btn btn-blue" href="@Url.Action("AddStudent")">+ Add Student</a>
+<br><br>
+
+<table>
+    <thead>
+        <tr>
+            <th>#</th><th>Name</th><th>Class</th><th>Phone</th><th>Email</th><th>Fee</th><th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td>@s.Class</td>
+                <td>@s.Phone</td>
+                <td>@s.Email</td>
+                <td>
+                    <span class="badge @(s.FeeStatus == "Paid" ? "badge-g" : "badge-a")">@s.FeeStatus</span>
+                </td>
+                <td><a class="btn btn-primary" href="@Url.Action("EditStudent", new { id = s.Id })">Update</a>
+                    <a class="btn btn-red" href="@Url.Action("DeleteStudent", new { id = s.Id })">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

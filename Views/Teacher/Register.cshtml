@@ -1,0 +1,39 @@
+@* @{ ViewBag.Title = "Teacher Registration"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Teacher Registration</h1>
+<p class="sub">Submit or update your details</p>
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert-success">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm("Register", "Teacher", FormMethod.Post))
+{
+    <div class="card">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="Name" required />
+            </div>
+            <div class="form-group">
+                <label>Department</label>
+                <select name="Department">
+                    <option>Mathematics</option><option>Science</option>
+                    <option>English</option><option>History</option><option>Computer Science</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="Phone" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="Email" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-blue">Submit Registration</button>
+    </div>
+} *@

@@ -1,0 +1,19 @@
+@{ ViewBag.Title = "Class Schedule"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Class Schedule</h1>
+<p class="sub">Weekly timetable — Class 10-A</p>
+
+<table>
+    <thead>
+        <tr><th>Time</th><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th></tr>
+    </thead>
+    <tbody>
+        <tr><td>8:00–9:00</td>   <td>Mathematics</td><td>English</td>    <td>Science</td>     <td>Mathematics</td><td>Computer Sci.</td></tr>
+        <tr><td>9:00–10:00</td>  <td>English</td>    <td>Science</td>    <td>History</td>     <td>English</td>    <td>Mathematics</td></tr>
+        <tr><td>10:00–10:30</td> <td colspan="5" style="background:#f9f9f9;color:#999;text-align:center;">— Break —</td></tr>
+        <tr><td>10:30–11:30</td> <td>History</td>    <td>Computer Sci.</td><td>Mathematics</td><td>Science</td>   <td>History</td></tr>
+        <tr><td>11:30–12:30</td> <td>Science</td>    <td>Mathematics</td><td>English</td>     <td>Computer Sci.</td><td>Science</td></tr>
+        <tr><td>12:30–1:30</td>  <td colspan="5" style="background:#fffbe6;color:#999;text-align:center;">— Lunch Break —</td></tr>
+        <tr><td>1:30–2:30</td>   <td>Computer Sci.</td><td>History</td>  <td>Computer Sci.</td><td>History</td>  <td>Free Period</td></tr>
+    </tbody>
+</table>

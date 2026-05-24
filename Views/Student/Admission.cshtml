@@ -1,0 +1,40 @@
+@{ ViewBag.Title = "Admission Form"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Admission Form</h1>
+<p class="sub">Fill in your details to apply</p>
+
+@if (ViewBag.Success != null)
+{
+    <div class="alert-success">@ViewBag.Success</div>
+}
+
+@using (Html.BeginForm("Admission", "Student", FormMethod.Post))
+{
+    <div class="card">
+        <div class="form-row">
+            <div class="form-group">
+                <label>Full Name</label>
+                <input type="text" name="Name" required />
+            </div>
+            <div class="form-group">
+                <label>Class Applying For</label>
+                <select name="Class">
+                    <option>9-A</option><option>9-B</option>
+                    <option>10-A</option><option>10-B</option>
+                    <option>11-A</option><option>11-B</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label>Phone</label>
+                <input type="text" name="Phone" />
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="Email" />
+            </div>
+        </div>
+        <button type="submit" class="btn btn-blue">Submit Application</button>
+    </div>
+}

@@ -1,0 +1,11 @@
+@{ ViewBag.Title = "Teacher Dashboard"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Teacher Dashboard</h1>
+<p class="sub">Welcome, @Context.Session.GetString("User")</p>
+
+<div class="card">
+    <b>Quick Links</b><br><br>
+    <a class="btn btn-blue" href="@Url.Action("Attendance")">Take Attendance</a>&nbsp;
+    <a class="btn btn-blue" href="@Url.Action("Diary")">Daily Diary</a>&nbsp;
+    @* <a class="btn btn-blue" href="@Url.Action("Register")">My Registration</a> *@
+</div>
