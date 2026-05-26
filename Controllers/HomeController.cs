@@ -1,47 +1,67 @@
 using System.Diagnostics;
+using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using NalandaInstitute.Models;
+using NalandaSchool.Models;
+using NalandaSchool.Data;
 
-namespace NalandaInstitute.Controllers
+namespace NalandaSchool.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ApplicationDbContext _context;
+
+        public HomeController(ApplicationDbContext context)
+        {
+            _context = context;
+        }
+
+        // Login Page
         public IActionResult Index()
         {
             return View();
         }
 
+        // Login Check
         [HttpPost]
-        public IActionResult Login(string username, string password, string role)
+        public IActionResult Login(string username, string password)
         {
-            // Demo login only
+            var user = _context.LoginUsers
+                .FirstOrDefault(x =>
+                    x.Username == username &&
+                    x.Password == password);
 
-            HttpContext.Session.SetString("User", username);
-            HttpContext.Session.SetString("Role", role);
-
-            if (role == "admin")
+            if (user != null)
             {
-                return RedirectToAction("Dashboard", "Admin");
+                HttpContext.Session.SetString("User", user.Username);
+                HttpContext.Session.SetString("Role", user.Role);
+
+                if (user.Role == "admin")
+                {
+                    return RedirectToAction("Dashboard", "Admin");
+                }
+
+                if (user.Role == "teacher")
+                {
+                    return RedirectToAction("Dashboard", "Teacher");
+                }
+
+                if (user.Role == "student")
+                {
+                    return RedirectToAction("Dashboard", "Student");
+                }
             }
 
-            if (role == "teacher")
-            {
-                return RedirectToAction("Dashboard", "Teacher");
-            }
+            ViewBag.Error = "Invalid Username or Password";
 
-            if (role == "student")
-            {
-                return RedirectToAction("Dashboard", "Student");
-            }
-
-            ViewBag.Error = "Invalid Login";
             return View("Index");
         }
 
+        // Logout
         public IActionResult Logout()
         {
             HttpContext.Session.Clear();
+
             return RedirectToAction("Index");
         }
 
@@ -50,12 +70,16 @@ namespace NalandaInstitute.Controllers
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        [ResponseCache(Duration = 0,
+            Location = ResponseCacheLocation.None,
+            NoStore = true)]
+
         public IActionResult Error()
         {
             return View(new ErrorViewModel
             {
-                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+                RequestId = Activity.Current?.Id
+                ?? HttpContext.TraceIdentifier
             });
         }
     }

@@ -1,4 +1,4 @@
-namespace NalandaInstitute.Models;
+namespace NalandaSchool.Models;
 
 public class ErrorViewModel
 {

@@ -20,14 +20,8 @@
 
         @using (Html.BeginForm("Login", "Home", FormMethod.Post))
         {
-            <div class="form-group">
-                <label>Login As</label>
-                <select name="role">
-                    <option value="admin">Admin</option>
-                    <option value="student">Student</option>
-                    <option value="teacher">Teacher</option>
-                </select>
-            </div>
+            
+            
             <div class="form-group">
                 <label>Username</label>
                 <input type="text" name="username" placeholder="Enter username" />
@@ -38,6 +32,6 @@
             </div>
             <button type="submit" class="btn-block">Sign In</button>
         }
-        <p style="margin-top:14px;text-align:center;font-size:11px;color:#aaa">Demo: enter any username &amp; password</p>
+        
     </div>
 </div>

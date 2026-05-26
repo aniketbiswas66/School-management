@@ -9,7 +9,8 @@ namespace NalandaSchool.Data
             : base(options)
         {
         }
-
+        public DbSet<LoginUser> LoginUsers{get; set;}
+        
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Teacher> Teachers { get; set; }
